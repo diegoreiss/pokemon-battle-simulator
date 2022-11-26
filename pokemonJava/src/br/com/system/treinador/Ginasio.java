@@ -10,6 +10,11 @@ public class Ginasio {
         this.nome = nome;
     }
 
+    public Ginasio(String nome, Insignia insignia) {
+        this.nome = nome;
+        this.insignia = insignia;
+    }
+
     public String getNome() {
         return nome;
     }
