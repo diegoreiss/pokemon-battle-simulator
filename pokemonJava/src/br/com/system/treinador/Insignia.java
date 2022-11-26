@@ -16,4 +16,28 @@ public class Insignia {
         this.nome = nome;
         this.descricaoBase = descricaoBase;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricaoBase() {
+        return descricaoBase;
+    }
+
+    public void setDescricaoBase(String descricaoBase) {
+        this.descricaoBase = descricaoBase;
+    }
+
+    public Ginasio getGinasio() {
+        return ginasio;
+    }
+
+    public void setGinasio(Ginasio ginasio) {
+        this.ginasio = ginasio;
+    }
 }
