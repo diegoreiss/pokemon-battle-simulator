@@ -11,4 +11,9 @@ public class Insignia {
         this.descricaoBase = descricaoBase;
         this.ginasio = ginasio;
     }
+
+    public Insignia(String nome, String descricaoBase) {
+        this.nome = nome;
+        this.descricaoBase = descricaoBase;
+    }
 }
