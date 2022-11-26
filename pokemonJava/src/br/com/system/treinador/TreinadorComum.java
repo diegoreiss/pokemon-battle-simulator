@@ -13,7 +13,7 @@ public class TreinadorComum extends Treinador {
 
     public TreinadorComum(String nome, int idade, Genero genero, Mochila mochila) {
         super(nome, idade, genero, mochila);
-        this.insignias = new ArrayList<>()
+        this.insignias = new ArrayList<>();
     }
 
     public TreinadorComum(String nome, int idade, Genero genero, Mochila mochila, Pokemon[] pokemons) {
