@@ -14,7 +14,6 @@ public abstract class Treinador {
     private Genero genero;
     private final int CAPACIDADE_DE_POKEMONS = 6;
     private Pokemon[] pokemons = new Pokemon[CAPACIDADE_DE_POKEMONS];
-    private List<Insignia> insignias;
     private Mochila mochila;
 
     public Treinador(String nome, int idade, Genero genero, Mochila mochila) {
@@ -22,7 +21,6 @@ public abstract class Treinador {
         this.idade = idade;
         this.genero = genero;
         this.mochila = mochila;
-        this.insignias = new ArrayList<>();
     }
 
     public Treinador(String nome, int idade, Genero genero, Mochila mochila, Pokemon[] pokemons) {
@@ -31,7 +29,6 @@ public abstract class Treinador {
         this.genero = genero;
         this.mochila = mochila;
         this.pokemons = isDentroDaCapacidade(pokemons) ? pokemons : slicePokemons(pokemons);
-        this.insignias = new ArrayList<>();
     }
 
     public String getNome() {
@@ -68,14 +65,6 @@ public abstract class Treinador {
 
     public void setPokemons(Pokemon[] pokemons) {
         this.pokemons = pokemons;
-    }
-
-    public List<Insignia> getInsignias() {
-        return insignias;
-    }
-
-    public void setInsignias(List<Insignia> insignias) {
-        this.insignias = insignias;
     }
 
     public Mochila getMochila() {
