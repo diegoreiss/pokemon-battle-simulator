@@ -24,6 +24,10 @@ public class LiderDeGinasio extends Treinador {
         this.ginasio = ginasio;
     }
 
+    public void entregarInsignia(TreinadorComum treinadorComum) {
+        treinadorComum.getInsignias().add(ginasio.getInsignia());
+    }
+
     @Override
     public void mostrarCartao() {
 
