@@ -1,7 +1,6 @@
 package br.com.system.batalha;
 
-import br.com.system.treinador.LiderDeGinasio;
-import br.com.system.treinador.TreinadorComum;
+import java.util.Random;
 
 public class Batalha {
 
@@ -18,4 +17,18 @@ public class Batalha {
     public void setTipoBatalha(TipoBatalha tipoBatalha) {
         this.tipoBatalha = tipoBatalha;
     }
+
+    public boolean fugirDaBatalha() throws Exception {
+
+        if (this.tipoBatalha.equals(TipoBatalha.BATALHA_POKEMON_COM_TREINADOR)) {
+            throw new Exception("Não pode fugir de uma batalha com treinador!");
+        }
+
+        boolean[] booleans = {true, false};
+
+        int randomInt = new Random().nextInt(booleans.length);
+
+        return booleans[randomInt];
+    }
+
 }
