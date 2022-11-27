@@ -1,5 +1,6 @@
 package br.com.system.batalha;
 
+import br.com.system.pokemon.Pokemon;
 import java.util.Random;
 
 public class Batalha {
@@ -31,4 +32,14 @@ public class Batalha {
         return booleans[randomInt];
     }
 
+    private Pokemon[] copyArrayPokemon(Pokemon[] pokemons) {
+
+        Pokemon[] copyArray = new Pokemon[pokemons.length];
+
+        for (int i = 0; i < copyArray.length; i++) {
+            copyArray[i] = pokemons[i];
+        }
+
+        return copyArray;
+    }
 }
