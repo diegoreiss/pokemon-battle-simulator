@@ -25,7 +25,14 @@ public class LiderDeGinasio extends Treinador {
     }
 
     public void entregarInsignia(TreinadorComum treinadorComum) {
-        treinadorComum.getInsignias().add(ginasio.getInsignia());
+
+        Insignia insigniaParaEntregar = ginasio.getInsignia();
+
+        try {
+            treinadorComum.receberInsignia(insigniaParaEntregar);
+        } catch (Exception exception) {
+            System.err.println(exception.getMessage());
+        }
     }
 
     @Override
