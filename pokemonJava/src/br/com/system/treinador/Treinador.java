@@ -4,9 +4,6 @@ import br.com.system.mochila.Mochila;
 import br.com.system.pokemon.Genero;
 import br.com.system.pokemon.Pokemon;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Treinador {
 
     private String nome;
@@ -75,7 +72,15 @@ public abstract class Treinador {
         this.mochila = mochila;
     }
 
-    public void mostrarPokemon() {}
+    public void mostrarPokemons() {
+        for (Pokemon pokemon : pokemons) {
+            try {
+                System.out.printf("     %s%n", pokemon.getNome());
+            } catch (NullPointerException ignored) {
+                break;
+            }
+        }
+    }
 
     public abstract void mostrarCartao();
 
