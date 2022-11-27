@@ -31,6 +31,19 @@ public class TreinadorComum extends Treinador {
 
     @Override
     public void mostrarCartao() {
+    }
 
+    private void mostrarInsignias() throws Exception {
+        if (insignias.isEmpty()) {
+            throw new Exception("Sem insígnias");
+        }
+
+        for (Insignia insignia : insignias) {
+            try {
+                System.out.printf("     %s%n", insignia.getNome());
+            } catch (NullPointerException nullPointerException) {
+                break;
+            }
+        }
     }
 }
