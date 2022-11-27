@@ -61,4 +61,15 @@ public class TreinadorComum extends Treinador {
             }
         }
     }
+
+    public boolean isExisteInsignia(Insignia insignia) {
+
+        for (Insignia insigniaMochila : insignias) {
+            if (insigniaMochila.equals(insignia)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
