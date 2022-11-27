@@ -31,6 +31,21 @@ public class TreinadorComum extends Treinador {
 
     @Override
     public void mostrarCartao() {
+        System.out.println("==============================");
+        System.out.println("      CARTAO DE TREINADOR     ");
+        System.out.println("==============================");
+
+        System.out.println("NOME: " + getNome());
+
+        System.out.println("Pokemons: ");
+        mostrarPokemons();
+
+        System.out.println("Insígnias: ");
+        try {
+            mostrarInsignias();
+        } catch (Exception exception) {
+            System.err.println(exception.getMessage());
+        }
     }
 
     private void mostrarInsignias() throws Exception {
