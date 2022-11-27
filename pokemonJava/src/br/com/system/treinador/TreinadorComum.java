@@ -62,6 +62,14 @@ public class TreinadorComum extends Treinador {
         }
     }
 
+    public void receberInsignia(Insignia insignia) throws Exception {
+        if (isExisteInsignia(insignia)) {
+            throw new Exception("Treinador " + getNome() + " já possui essa insígnia");
+        } else {
+            insignias.add(insignia);
+        }
+    }
+
     public boolean isExisteInsignia(Insignia insignia) {
 
         for (Insignia insigniaMochila : insignias) {
