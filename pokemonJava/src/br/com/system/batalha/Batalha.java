@@ -42,4 +42,25 @@ public class Batalha {
 
         return copyArray;
     }
+
+    private Pokemon[] removePrimeiroPokemon(Pokemon[] pokemons) {
+
+        if (pokemons == null || pokemons.length == 0) {
+            return pokemons;
+        }
+
+        int index = 0;
+
+        Pokemon[] novoArrayPokemon = new Pokemon[pokemons.length - 1];
+
+        for (int i = 0, j = 0; i < pokemons.length; i++) {
+            if (i == index) {
+                continue;
+            }
+
+            novoArrayPokemon[j++] = pokemons[i];
+        }
+
+        return  novoArrayPokemon;
+    }
 }
