@@ -70,7 +70,7 @@ public class TreinadorComum extends Treinador {
         }
     }
 
-    public boolean isExisteInsignia(Insignia insignia) {
+    private boolean isExisteInsignia(Insignia insignia) {
 
         for (Insignia insigniaMochila : insignias) {
             if (insigniaMochila.equals(insignia)) {
