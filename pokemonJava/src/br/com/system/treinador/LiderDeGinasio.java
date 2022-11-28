@@ -37,6 +37,16 @@ public class LiderDeGinasio extends Treinador {
 
     @Override
     public void mostrarCartao() {
+        System.out.println("==============================");
+        System.out.println("      CARTAO DE TREINADOR     ");
+        System.out.println("==============================");
 
+        System.out.println("NOME: " + getNome());
+
+        System.out.println("Pokemons: ");
+        mostrarPokemons();
+
+        System.out.println("Pertence ao : " + ginasio.getNome());
+        System.out.println("Entrega a : " + ginasio.getInsignia().getNome());
     }
 }
