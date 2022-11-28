@@ -6,14 +6,12 @@ public class Movimento {
     private int danoBase;
     private String descricao;
     private Tipo tipo;
-    private int pontosPoder;
 
-    public Movimento(String nome, int danoBase, String descricao, Tipo tipo, int pontosPoder) {
+    public Movimento(String nome, int danoBase, String descricao, Tipo tipo) {
         this.nome = nome;
         this.danoBase = danoBase;
         this.descricao = descricao;
         this.tipo = tipo;
-        this.pontosPoder = pontosPoder;
     }
 
     public String getNome() {
@@ -46,13 +44,5 @@ public class Movimento {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
-    }
-
-    public int getPontosPoder() {
-        return pontosPoder;
-    }
-
-    public void setPontosPoder(int pontosPoder) {
-        this.pontosPoder = pontosPoder;
     }
 }
