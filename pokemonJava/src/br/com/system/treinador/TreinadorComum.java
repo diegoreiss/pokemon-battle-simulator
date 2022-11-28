@@ -46,6 +46,7 @@ public class TreinadorComum extends Treinador {
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
         }
+        System.out.println("==============================");
     }
 
     private void mostrarInsignias() throws Exception {

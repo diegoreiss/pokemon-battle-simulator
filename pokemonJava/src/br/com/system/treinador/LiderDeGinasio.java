@@ -48,5 +48,6 @@ public class LiderDeGinasio extends Treinador {
 
         System.out.println("Pertence ao : " + ginasio.getNome());
         System.out.println("Entrega a : " + ginasio.getInsignia().getNome());
+        System.out.println("==============================");
     }
 }
