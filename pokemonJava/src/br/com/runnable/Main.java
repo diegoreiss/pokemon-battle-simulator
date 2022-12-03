@@ -1,30 +1,32 @@
-import br.com.system.batalha.Batalha;
-import br.com.system.batalha.TipoBatalha;
-import br.com.system.mochila.Mochila;
-import br.com.system.mochila.Pocao;
-import br.com.system.mochila.Pokebola;
-import br.com.system.pokemon.Genero;
-import br.com.system.pokemon.Movimento;
-import br.com.system.pokemon.Pokemon;
-import br.com.system.pokemon.Tipo;
+package br.com.runnable;
+
+import br.com.system.batalha.*;
+import br.com.system.mochila.*;
+import br.com.system.pokemon.*;
 import br.com.system.treinador.*;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // Inicío do programa na linha 258
 
+// ===================================================================
         Tipo agua = new Tipo("Água");
         Tipo fogo = new Tipo("Fogo");
         Tipo planta = new Tipo("Planta");
         Tipo eletrico = new Tipo("Elétrico");
-        Tipo terra = new Tipo("Terra");
+        Tipo terra = new Tipo("Terra");                // Tipos
         Tipo normal = new Tipo("Normal");
         Tipo lutador = new Tipo("Lutador");
         Tipo voador = new Tipo("Voador");
         Tipo pedra = new Tipo("Pedra");
+// ===================================================================
+
+// ===================================================================
+        // Atribuindo as fraquezas e pontos fortes dos tipos
 
         // Fraqueza | Forte tipo agua
         agua.getFracoContra().add(planta);
@@ -37,6 +39,7 @@ public class Main {
 
         // Fraqueza | Forte tipo planta
         planta.getFracoContra().add(fogo);
+        planta.getFracoContra().add(voador);
         planta.getForteContra().add(agua);
 
         // Fraqueza | Forte tipo eletrico
@@ -45,6 +48,7 @@ public class Main {
 
         // Fraqueza | Forte tipo terra
         terra.getFracoContra().add(agua);
+        terra.getFracoContra().add(planta);
         terra.getForteContra().add(eletrico);
 
         // Fraqueza | Forte tipo normal;
@@ -64,6 +68,12 @@ public class Main {
         pedra.getFracoContra().add(planta);
         pedra.getForteContra().add(fogo);
         pedra.getForteContra().add(voador);
+
+// ===================================================================
+
+
+// ===================================================================
+        // Movimentos
 
 
         // Movimentos agua
@@ -120,90 +130,118 @@ public class Main {
         Movimento explosaoDeRocha = new Movimento("Explosão de Rocha", 125, "O usuário arremessa pedras duras no alvo.", pedra);
         Movimento tumbaDeRochas = new Movimento("Tumba de Rochas", 60, "Pedras são arremessadas contra o alvo.", pedra);
 
+// ===================================================================
 
-        // Tipos pokemon Charizard
+// ===================================================================
+        // Pokemons
+
+        // Pokemon Charizard
         Pokemon charizard = new Pokemon("Charizard", 225, Genero.MASCULINO, Arrays.asList(fogo, voador));
         charizard.aprenderMovimento(investida);
         charizard.aprenderMovimento(lancaChamas);
         charizard.aprenderMovimento(explosaoIncendiaria);
         charizard.aprenderMovimento(explosaoAerea);
 
-        // Tipos Pokemon Venosauro
+        // Pokemon Venosauro
         Pokemon venosauro = new Pokemon("Venosauro", 245, Genero.FEMININO, Collections.singletonList(planta));
         venosauro.aprenderMovimento(investida);
         venosauro.aprenderMovimento(raioSolar);
         venosauro.aprenderMovimento(folhaNavalha);
         venosauro.aprenderMovimento(gigaDreno);
 
-        // Tipos Pokemon Blastoise
+        // Pokemon Blastoise
         Pokemon blastoise = new Pokemon("Blastoise", 300, Genero.MASCULINO, Collections.singletonList(agua));
         blastoise.aprenderMovimento(investida);
         blastoise.aprenderMovimento(hidroBomba);
         blastoise.aprenderMovimento(surfar);
         blastoise.aprenderMovimento(pistolaDagua);
 
-        // Tipos Pokemon pikachu
+        // Pokemon pikachu
         Pokemon pikachu = new Pokemon("Pikachu", 215, Genero.MASCULINO, Collections.singletonList(eletrico));
         pikachu.aprenderMovimento(investida);
         pikachu.aprenderMovimento(raio);
         pikachu.aprenderMovimento(trovao);
         pikachu.aprenderMovimento(faisca);
 
-        // Tipos Pokemon onix
+        // Pokemon onix
         Pokemon onix = new Pokemon("Onix", 200, Genero.MASCULINO, Collections.singletonList(pedra));
         onix.aprenderMovimento(investida);
         onix.aprenderMovimento(explosaoDeRocha);
         onix.aprenderMovimento(lancamentoDeRocha);
         onix.aprenderMovimento(deslizeDePedras);
 
-        // Tipos Pokemon dugtrio
+        // Pokemon dugtrio
         Pokemon dugtrio = new Pokemon("Dugtrio", 200, Genero.FEMININO, Collections.singletonList(terra));
         dugtrio.aprenderMovimento(investida);
         dugtrio.aprenderMovimento(terremoto);
         dugtrio.aprenderMovimento(tiroDeLama);
         dugtrio.aprenderMovimento(poderDaTerra);
 
-        // Tipos Pokemon pidgeot
+        // Pokemon pidgeot
         Pokemon pidgeot = new Pokemon("Pidgeot", 200, Genero.MASCULINO, Arrays.asList(normal, voador));
         pidgeot.aprenderMovimento(investida);
         pidgeot.aprenderMovimento(asDosAres);
         pidgeot.aprenderMovimento(ataqueDeAsa);
         pidgeot.aprenderMovimento(lufadaDeVento);
 
-        // Tipos Pokemon hitmonchan
+        // Pokemon hitmonchan
         Pokemon hitmonchan = new Pokemon("Hitmonchan", 250, Genero.FEMININO, Collections.singletonList(lutador));
         hitmonchan.aprenderMovimento(socoDeFogo);
         hitmonchan.aprenderMovimento(socoDeTrovao);
         hitmonchan.aprenderMovimento(explosaoFocalizada);
         hitmonchan.aprenderMovimento(quebraTijolos);
 
-        // Tipos Pokemon Snorlax
+        // Pokemon Snorlax
         Pokemon snorlax = new Pokemon("Snorlax", 350, Genero.MASCULINO, Collections.singletonList(normal));
         snorlax.aprenderMovimento(terremoto);
         snorlax.aprenderMovimento(hiperRaio);
         snorlax.aprenderMovimento(pancadaCorporal);
         snorlax.aprenderMovimento(deslizeDePedras);
 
-        List<Pokemon> pokemons = Arrays.asList(charizard, venosauro, blastoise, pikachu, onix, dugtrio, pidgeot, hitmonchan, snorlax);
+// ===================================================================
+
+// ===================================================================
+
+        // Itens Da Mochila
 
         // Poções
-        Pocao superPotion = new Pocao("Super Potion", 70);
-        Pocao megaPotion = new Pocao("Mega Potion", 110);
+        Pocao superPotion = new Pocao("Super Potion", 150);
+        Pocao megaPotion = new Pocao("Mega Potion", 400);
 
         // Pokebolas
         Pokebola superBall = new Pokebola("SuperBall");
         Pokebola megaBall = new Pokebola("Mega Ball");
 
+// ===================================================================
+
+
+// ===================================================================
+        // Mochila
+
         Mochila mochilaDoAsh = new Mochila(15);
         Mochila mochilaDoLeon = new Mochila(10);
         Mochila mochilaDoBrock = new Mochila(20);
 
-        Pokemon[] pokemonsDoBrock = {onix, blastoise};
-        Pokemon[] pokemonsDoAsh = {venosauro, pikachu, charizard, blastoise};
-        Pokemon[] pokemonsDoLeon = {dugtrio, pidgeot, snorlax, hitmonchan, onix, charizard, pikachu};
+        mochilaDoAsh.adicionarItem(superPotion, 1);
+        mochilaDoAsh.adicionarItem(megaPotion, 10);
+        mochilaDoAsh.adicionarItem(superBall, 2);
+        mochilaDoAsh.adicionarItem(megaBall, 1);
 
-        TreinadorComum ash = new TreinadorComum("Ash", 10, Genero.MASCULINO, mochilaDoAsh, pokemonsDoAsh);
-        TreinadorComum leon = new TreinadorComum("Leon", 12, Genero.MASCULINO, mochilaDoLeon, pokemonsDoLeon);
+// ===================================================================
+
+// ===================================================================
+        // Treinadores e Ginásios
+
+        TreinadorComum ash = new TreinadorComum("Ash", 10, Genero.MASCULINO, mochilaDoAsh);
+        ash.capturarPokemon(venosauro);
+        ash.capturarPokemon(pikachu);
+        ash.capturarPokemon(pidgeot);
+        ash.capturarPokemon(blastoise);
+
+        TreinadorComum leon = new TreinadorComum("Leon", 12, Genero.MASCULINO, mochilaDoLeon);
+        leon.capturarPokemon(dugtrio);
+        leon.capturarPokemon(hitmonchan);
+        leon.capturarPokemon(snorlax);
 
         // Ginasio
         Insignia insigniaDePedra = new Insignia("Insígnia De Pedra", "é uma pedra");
@@ -211,22 +249,47 @@ public class Main {
         Ginasio ginasioDePedra = new Ginasio("Ginásio de Pedra");
         ginasioDePedra.setInsignia(insigniaDePedra);
 
-        LiderDeGinasio brock = new LiderDeGinasio("Brock", 15, Genero.MASCULINO, mochilaDoBrock, pokemonsDoBrock);
+        LiderDeGinasio brock = new LiderDeGinasio("Brock", 15, Genero.MASCULINO, mochilaDoBrock);
+        brock.capturarPokemon(onix);
+
         ginasioDePedra.setDoador(brock);
         brock.setGinasio(ginasioDePedra);
 
-        //brock.entregarInsignia(ash);
-        //brock.mostrarCartao();
-        //ash.mostrarCartao();
+// ===================================================================
 
-        try {
-            Batalha batalhaTreinadorXTreinador = new Batalha(TipoBatalha.BATALHA_POKEMON_COM_TREINADOR);
-            batalhaTreinadorXTreinador.iniciarBatalha(ash, brock);
+// ===================================================================
+        // Início do programa
 
-        } catch (Exception e) {
-            System.out.println("deu ruim");
+        Scanner sc = new Scanner(System.in);
+        int opcaoBatalha;
+
+        System.out.println("Qual tipo de batalha deseja escolher?\n\n" +
+                "[1] - Batalha com Pokemon Selvagem\n" +
+                "[2] - Batalha com outro Treinador Pokemon\n" +
+                "[3] - Batalha com Líder De Ginásio\n\n" +
+                "[4] - Sair do programa");
+
+        do {
+            System.out.print("\n>> ");
+            opcaoBatalha = sc.nextInt();
+        } while (opcaoBatalha < 1 || opcaoBatalha > 4);
+
+        if (opcaoBatalha == 4) {
+            System.out.println("Programa encerrado!");
+        } else {
+            switch (opcaoBatalha) {
+                case 1:
+                    BatalhaVsPokemonSelvagem batalhaVSPokemonSelvagem = new BatalhaVsPokemonSelvagem(ash, charizard);
+                    batalhaVSPokemonSelvagem.iniciarBatalha();
+                    break;
+                case 2:
+                    BatalhaVsTreinadorComum batalhaVsTreinadorComum = new BatalhaVsTreinadorComum(ash, leon);
+                    batalhaVsTreinadorComum.iniciarBatalha();
+                    break;
+                case 3:
+                    BatalhaVsLider batalhaVsLider = new BatalhaVsLider(ash, brock);
+                    batalhaVsLider.iniciarBatalha();
+            }
         }
-
-
     }
 }
