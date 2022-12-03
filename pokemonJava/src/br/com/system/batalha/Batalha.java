@@ -1,13 +1,12 @@
 package br.com.system.batalha;
 
 import br.com.exceptions.PokemonAbatidoException;
-import br.com.system.mochila.ItemPocao;
-import br.com.system.mochila.Mochila;
-import br.com.system.mochila.Pocao;
+import br.com.system.mochila.*;
 import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.pokemon.Tipo;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public interface Batalha {
@@ -74,7 +73,7 @@ public interface Batalha {
             } catch (ArrayIndexOutOfBoundsException ignored) {}
         } while (loop);
 
-        return movimentoEscolhido
+        return movimentoEscolhido;
     }
 
     static int opcoesBatalha() {
@@ -133,5 +132,29 @@ public interface Batalha {
         } while (loop);
 
         return pocaoEscolhida;
+    }
+
+    static Pokebola escolherPokebola(Mochila mochila) {
+        Scanner sc = new Scanner(System.in);
+
+        int itemPokebolaIndex = 1, itemPokebolaEscolhidaIndex = 0;
+        boolean loop = true;
+        Pokebola pokebolaEscolhida = null;
+
+        System.out.println("POKEBOLAS");
+        for (ItemPokebola itemPokebola : mochila.getPokebolas()) {
+            System.out.printf("[%d] - %s : x%d%n", itemPokebolaIndex++, itemPokebola.getPokebola().getNome(), itemPokebola.getQuantidade());
+        }
+
+        do {
+            try {
+                System.out.println("Qual pokebola escolher?: ");
+                itemPokebolaEscolhidaIndex = sc.nextInt();
+                pokebolaEscolhida = mochila.getPokebolas().get(itemPokebolaEscolhidaIndex-1).getPokebola();
+                loop = false;
+            } catch (IndexOutOfBoundsException ignored) {}
+        } while (loop);
+
+        return pokebolaEscolhida;
     }
 }
