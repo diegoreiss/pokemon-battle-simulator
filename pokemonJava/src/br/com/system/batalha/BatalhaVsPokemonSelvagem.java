@@ -82,7 +82,12 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void turnoAdversario() throws PokemonAbatidoException, FugirDaBatalhaException {
+        fugirDaBatalha();
 
+        int randIndexMovimento = new Random().nextInt(this.pokemonSelvagem.getMovimentos().length);
+        Movimento movimentoRandom = pokemonSelvagem.getMovimentos()[randIndexMovimento];
+        System.out.printf("%s usou %s%n", this.pokemonSelvagem.getNome(), movimentoRandom.getNome());
+        Batalha.atacarPokemon(movimentoRandom, this.pokemonPlayerEscolhido);
     }
 
     @Override
