@@ -157,4 +157,26 @@ public interface Batalha {
 
         return pokebolaEscolhida;
     }
+
+    static Pokemon[] copyArrayPokemon(Pokemon[] pokemons) {
+        int contPokemons = 0;
+
+        for (Pokemon pokemon : pokemons) {
+            if (pokemon != null) {
+                contPokemons++;
+            }
+        }
+
+        Pokemon[] copyArray = new Pokemon[contPokemons];
+
+        for (int i = 0; i < copyArray.length; i++) {
+            if (pokemons[i] == null) {
+                continue;
+            }
+
+            copyArray[i] = pokemons[i];
+        }
+
+        return copyArray;
+    }
 }
