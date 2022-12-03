@@ -1,11 +1,11 @@
 package br.com.system.treinador;
 
 import br.com.system.mochila.Mochila;
+import br.com.system.mochila.Pocao;
 import br.com.system.pokemon.Genero;
 import br.com.system.pokemon.Pokemon;
 
 public abstract class Treinador {
-
     private String nome;
     private int idade;
     private Genero genero;
@@ -18,14 +18,6 @@ public abstract class Treinador {
         this.idade = idade;
         this.genero = genero;
         this.mochila = mochila;
-    }
-
-    public Treinador(String nome, int idade, Genero genero, Mochila mochila, Pokemon[] pokemons) {
-        this.nome = nome;
-        this.idade = idade;
-        this.genero = genero;
-        this.mochila = mochila;
-        this.pokemons = isDentroDaCapacidade(pokemons) ? pokemons : slicePokemons(pokemons);
     }
 
     public String getNome() {
@@ -72,23 +64,23 @@ public abstract class Treinador {
         this.mochila = mochila;
     }
 
+    public abstract void mostrarCartao();
+
     public void mostrarPokemons() {
-        for (Pokemon pokemon : pokemons) {
+        for (Pokemon pokemon : this.pokemons) {
             try {
-                System.out.printf("     %s%n", pokemon.getNome());
-            } catch (NullPointerException ignored) {
+                System.out.printf("     %s [%c]%n", pokemon.getNome(), pokemon.getSIMBOLO_GENERO());
+            } catch (NullPointerException nullPointerException) {
                 break;
             }
         }
     }
 
-    public abstract void mostrarCartao();
+    public  void curarPokemon(Pocao pocao) {
+    }
 
-    public void procurarPokemon() {}
-
-    public  void curarPokemon() {}
-
-    public void capturarPokemon() {}
+    public void capturarPokemon(Pokemon pokemon) {
+    }
 
     private boolean isDentroDaCapacidade(Pokemon[] pokemons) {
         return pokemons.length <= CAPACIDADE_DE_POKEMONS;
