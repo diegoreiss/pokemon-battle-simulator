@@ -95,7 +95,7 @@ public class BatalhaVsLider implements Batalha {
 
     @Override
     public void capturarPokemon() throws CapturaPokemonException {
-
+        throw new CapturaPokemonException("Não pode capturar o pokemon de um treinador!");
     }
 
     @Override
