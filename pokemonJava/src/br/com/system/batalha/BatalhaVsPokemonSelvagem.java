@@ -59,7 +59,59 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void iniciarBatalha() {
+        boolean isFugiu = false, isCapturou = false;
 
+        System.out.printf("Um %s selvagem apareceu!%n", this.pokemonSelvagem.getNome());
+
+        while (true) { // while true até que tenha um vencedor, que alguem fuja da batalha ou que o pokemon seja capturado
+            verificarHpPokemons(this.pokemonPlayerEscolhido, this.pokemonSelvagem);
+
+            Object vencedor = verificarVencedor();
+
+            if (isFugiu) {
+                break;
+            } else if (isCapturou) {
+                break;
+            }
+
+            if (vencedor instanceof TreinadorComum) {
+                System.out.println("Você venceu!");
+                break;
+            } else if (vencedor instanceof Pokemon) {
+                System.err.println("Você perdeu!");
+                break;
+            }
+
+            while (true) { // while true até que um pokemon seja abatido
+                Batalha.mostrarInformacoesPokemons(this.pokemonPlayerEscolhido, this.pokemonSelvagem);
+
+                try {
+                    turnoPlayer();
+                } catch (PokemonAbatidoException pokemonAbatidoException) {
+                    System.err.println(pokemonAbatidoException.getMessage());
+                    break;
+                } catch (FugirDaBatalhaException fugirDaBatalhaException) {
+                    System.out.println(fugirDaBatalhaException.getMessage());
+                    isFugiu = true;
+                    break;
+                } catch (CapturaPokemonException capturaPokemonException) {
+                    System.out.println(capturaPokemonException.getMessage());
+                    isCapturou = true;
+                    break;
+                }
+
+                try {
+                    turnoAdversario();
+                } catch (PokemonAbatidoException pokemonAbatidoException) {
+                    System.err.println(pokemonAbatidoException.getMessage());
+                    break;
+                } catch (FugirDaBatalhaException fugirDaBatalhaException) {
+                    System.out.printf("%s %s%n", this.pokemonSelvagem.getNome(), fugirDaBatalhaException.getMessage());
+                    isFugiu = true;
+                    break;
+                }
+            }
+        }
     }
 
     @Override
