@@ -76,7 +76,15 @@ public abstract class Treinador {
         }
     }
 
-    public  void curarPokemon(Pocao pocao) {
+    public  void curarPokemon(Pocao pocao, Pokemon pokemonParaCurar) {
+        pokemonParaCurar.setHpAtual(pokemonParaCurar.getHpAtual() + pocao.getHpRecupera());
+
+        if (pokemonParaCurar.getHpAtual() >= pokemonParaCurar.getHP_TOTAL()) {
+            pokemonParaCurar.setHpAtual(pokemonParaCurar.getHP_TOTAL());
+        }
+
+        mochila.removerItem(pocao, 1);
+        System.out.printf("Curou o %s%n", pokemonParaCurar.getNome());
     }
 
     public void capturarPokemon(Pokemon pokemon) {
