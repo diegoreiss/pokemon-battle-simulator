@@ -13,6 +13,7 @@ public interface Batalha {
     void iniciarBatalha();
     void turnoPlayer() throws PokemonAbatidoException, FugirDaBatalhaException, CapturaPokemonException;
     void turnoAdversario() throws PokemonAbatidoException, FugirDaBatalhaException;
+    void irParaMochila() throws CapturaPokemonException;
 
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
         System.out.printf(
