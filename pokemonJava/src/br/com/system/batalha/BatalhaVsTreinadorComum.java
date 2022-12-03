@@ -104,7 +104,15 @@ public class BatalhaVsTreinadorComum implements Batalha {
 
     @Override
     public void verificarHpPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
-
+        try {
+            if (pokemonPlayer.getHpAtual() <= 0) {
+                this.pokemonsPlayer = Batalha.removePrimeiroPokemon(this.pokemonsPlayer);
+                this.pokemonPlayerEscolhido = this.pokemonsPlayer[0];
+            } else if (pokemonAdversario.getHpAtual() <= 0) {
+                this.pokemonsAdversario = Batalha.removePrimeiroPokemon(this.pokemonsAdversario);
+                this.pokemonAdversarioEscolhido = this.pokemonsAdversario[0];
+            }
+        } catch (ArrayIndexOutOfBoundsException ignored) {}
     }
 
     @Override
