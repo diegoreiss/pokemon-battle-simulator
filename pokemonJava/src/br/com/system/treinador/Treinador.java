@@ -87,6 +87,15 @@ public abstract class Treinador {
         System.out.printf("Curou o %s%n", pokemonParaCurar.getNome());
     }
 
-    public void capturarPokemon(Pokemon pokemon) {
+    private boolean isCapacidadeFull() {
+        int contNotNull = 0;
+
+        for (Pokemon pokemon : this.pokemons) {
+            if (pokemon != null) {
+                contNotNull++;
+            }
+        }
+
+        return contNotNull == this.CAPACIDADE_DE_POKEMONS;
     }
 }
