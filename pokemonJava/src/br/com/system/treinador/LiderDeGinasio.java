@@ -12,10 +12,6 @@ public class LiderDeGinasio extends Treinador {
         super(nome, idade, genero, mochila);
     }
 
-    public LiderDeGinasio(String nome, int idade, Genero genero, Mochila mochila, Pokemon[] pokemons) {
-        super(nome, idade, genero, mochila, pokemons);
-    }
-
     public Ginasio getGinasio() {
         return ginasio;
     }
@@ -24,8 +20,20 @@ public class LiderDeGinasio extends Treinador {
         this.ginasio = ginasio;
     }
 
-    public void entregarInsignia(TreinadorComum treinadorComum) {
+    @Override
+    public void mostrarCartao() {
+        System.out.println("==============================");
+        System.out.println("      CARTAO DE TREINADOR     ");
+        System.out.println("==============================");
+        System.out.println("NOME: " + getNome());
+        System.out.println("Pokemons: ");
+        mostrarPokemons();
+        System.out.println("Pertence ao : " + ginasio.getNome());
+        System.out.println("Entrega a : " + ginasio.getInsignia().getNome());
+        System.out.println("==============================");
+    }
 
+    public void entregarInsignia(TreinadorComum treinadorComum) {
         Insignia insigniaParaEntregar = ginasio.getInsignia();
 
         try {
@@ -33,21 +41,5 @@ public class LiderDeGinasio extends Treinador {
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
         }
-    }
-
-    @Override
-    public void mostrarCartao() {
-        System.out.println("==============================");
-        System.out.println("      CARTAO DE TREINADOR     ");
-        System.out.println("==============================");
-
-        System.out.println("NOME: " + getNome());
-
-        System.out.println("Pokemons: ");
-        mostrarPokemons();
-
-        System.out.println("Pertence ao : " + ginasio.getNome());
-        System.out.println("Entrega a : " + ginasio.getInsignia().getNome());
-        System.out.println("==============================");
     }
 }
