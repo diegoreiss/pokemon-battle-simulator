@@ -1,7 +1,9 @@
 package br.com.system.batalha;
 
 import br.com.exceptions.PokemonAbatidoException;
+import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
+import br.com.system.pokemon.Tipo;
 
 public interface Batalha {
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
@@ -22,5 +24,21 @@ public interface Batalha {
         if (pokemonQueRecebeuAtaque.getHpAtual() <= 0) {
             throw new PokemonAbatidoException("Pokemon " + pokemonQueRecebeuAtaque.getNome() + " foi abatido!");
         }
+    }
+
+    static int danoAReceber(Movimento movimentoEscolhido, Pokemon pokemonAReceberOMovimento) {
+        int danoAReceber = movimentoEscolhido.getDanoBase();
+
+        for (Tipo tipo : pokemonAReceberOMovimento.getTipos()) {
+            for (Tipo fraqueza : tipo.getFracoContra()) {
+                if (fraqueza.equals(movimentoEscolhido.getTipo())) {
+                    danoAReceber = movimentoEscolhido.getDanoBase() * 2;
+                    System.out.println("Foi super efetivo!");
+                    break;
+                }
+            }
+        }
+
+        return danoAReceber;
     }
 }
