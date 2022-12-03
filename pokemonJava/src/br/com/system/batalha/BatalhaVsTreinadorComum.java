@@ -78,7 +78,46 @@ public class BatalhaVsTreinadorComum implements Batalha {
 
     @Override
     public void iniciarBatalha() {
+        System.out.println("Foi desafiado pelo treinador " + this.adversario.getNome());
 
+        Object vencedor = null;
+
+        while (true) {
+            verificarHpPokemons(this.pokemonPlayerEscolhido, this.pokemonAdversarioEscolhido);
+
+            // 0 - Player | 1 - Adversario
+            vencedor = verificarVencedor();
+
+            if (vencedor != null) {
+                break;
+            }
+
+            while (true) {
+                Batalha.mostrarInformacoesPokemons(this.pokemonPlayerEscolhido, this.pokemonAdversarioEscolhido);
+
+                try {
+                    turnoPlayer();
+                } catch (PokemonAbatidoException pokemonAbatidoException) {
+                    System.err.println(pokemonAbatidoException.getMessage());
+                    break;
+                } catch (FugirDaBatalhaException | CapturaPokemonException cannotExecuteMethod) {
+                    System.err.println(cannotExecuteMethod.getMessage());
+                }
+
+                try {
+                    turnoAdversario();
+                } catch (PokemonAbatidoException pokemonAbatidoException) {
+                    System.err.println(pokemonAbatidoException.getMessage());
+                    break;
+                }
+            }
+        }
+
+        if (vencedor.equals(0)) {
+            System.out.println("Você venceu!");
+        } else if (vencedor.equals(1)) {
+            System.err.println("Você perdeu!");
+        }
     }
 
     @Override
@@ -101,7 +140,7 @@ public class BatalhaVsTreinadorComum implements Batalha {
     }
 
     @Override
-    public void turnoAdversario() throws PokemonAbatidoException, FugirDaBatalhaException {
+    public void turnoAdversario() throws PokemonAbatidoException {
         int randIndexMovimento = new Random().nextInt(this.pokemonAdversarioEscolhido.getMovimentos().length);
         Movimento movimentoRandom = this.pokemonAdversarioEscolhido.getMovimentos()[randIndexMovimento];
         System.out.printf("%s usou %s%n", this.pokemonAdversarioEscolhido.getNome(), movimentoRandom.getNome());
