@@ -89,16 +89,4 @@ public abstract class Treinador {
 
     public void capturarPokemon(Pokemon pokemon) {
     }
-
-    private Pokemon[] slicePokemons(Pokemon[] pokemons) {
-        Pokemon[] pokemonsSliced = new Pokemon[CAPACIDADE_DE_POKEMONS];
-
-        for (int i = 0; i < pokemonsSliced.length; i++) {
-            pokemonsSliced[i] = pokemons[i];
-        }
-
-        return pokemonsSliced;
-    }
-
-
 }
