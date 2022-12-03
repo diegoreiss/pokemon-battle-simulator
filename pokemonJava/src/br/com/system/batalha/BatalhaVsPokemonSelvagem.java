@@ -3,6 +3,7 @@ package br.com.system.batalha;
 import br.com.exceptions.CapturaPokemonException;
 import br.com.exceptions.FugirDaBatalhaException;
 import br.com.exceptions.PokemonAbatidoException;
+import br.com.system.mochila.Pokebola;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.treinador.TreinadorComum;
 
@@ -76,7 +77,9 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void capturarPokemon() throws CapturaPokemonException {
-
+        Pokebola pokebolaEscolhida = Batalha.escolherPokebola(this.player.getMochila());
+        this.player.capturarPokemon(pokebolaEscolhida, this.pokemonSelvagem);
+        throw new CapturaPokemonException("Pokemon " + this.pokemonSelvagem.getNome() + " capturado!");
     }
 
     @Override
