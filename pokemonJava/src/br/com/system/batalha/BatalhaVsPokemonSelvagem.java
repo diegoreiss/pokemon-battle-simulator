@@ -3,6 +3,7 @@ package br.com.system.batalha;
 import br.com.exceptions.CapturaPokemonException;
 import br.com.exceptions.FugirDaBatalhaException;
 import br.com.exceptions.PokemonAbatidoException;
+import br.com.system.mochila.Pocao;
 import br.com.system.mochila.Pokebola;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.treinador.TreinadorComum;
@@ -72,7 +73,25 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void irParaMochila() throws CapturaPokemonException {
+        int opcaoMochila = Batalha.opcoesMochila();
 
+        switch (opcaoMochila) {
+            case 1:
+                if (this.player.getMochila().getPocoes().isEmpty()) {
+                    System.err.println("Sem poções na mochila!");
+                } else {
+                    Pocao pocaoEscolhida = Batalha.escolherPocao(this.player.getMochila());
+                    this.player.curarPokemon(pocaoEscolhida, this.pokemonPlayerEscolhido);
+                }
+                break;
+            case 2:
+                if (this.player.getMochila().getPokebolas().isEmpty()) {
+                    System.err.println("Sem pokebolas na mochila!");
+                } else {
+                    capturarPokemon();
+                }
+                break;
+        }
     }
 
     @Override
