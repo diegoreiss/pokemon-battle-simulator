@@ -5,11 +5,11 @@ import br.com.system.mochila.*;
 import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.pokemon.Tipo;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public interface Batalha {
+    void iniciarBatalha();
+
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
         System.out.printf(
                 "%n" +
