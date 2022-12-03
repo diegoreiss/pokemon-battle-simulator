@@ -6,6 +6,8 @@ import br.com.exceptions.PokemonAbatidoException;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.treinador.TreinadorComum;
 
+import java.util.Random;
+
 public class BatalhaVsPokemonSelvagem implements Batalha {
 
     private TreinadorComum player;
@@ -79,7 +81,15 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void fugirDaBatalha() throws FugirDaBatalhaException {
+        boolean[] booleans = {true, false};
 
+        int randomIndex = new Random().nextInt(booleans.length);
+
+        boolean isFugiu = booleans[randomIndex];
+
+        if (isFugiu) {
+            throw new FugirDaBatalhaException("Fugiu com sucesso!");
+        }
     }
 
     @Override
