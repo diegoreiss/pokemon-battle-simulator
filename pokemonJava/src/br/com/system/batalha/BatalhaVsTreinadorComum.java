@@ -99,7 +99,7 @@ public class BatalhaVsTreinadorComum implements Batalha {
 
     @Override
     public void fugirDaBatalha() throws FugirDaBatalhaException {
-
+        throw new FugirDaBatalhaException("Não pode fugir da batalha!");
     }
 
     @Override
