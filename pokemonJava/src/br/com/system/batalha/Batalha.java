@@ -17,6 +17,7 @@ public interface Batalha {
     void capturarPokemon() throws CapturaPokemonException;
     void fugirDaBatalha() throws FugirDaBatalhaException;
     void verificarHpPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario);
+    Object verificarVencedor();
 
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
         System.out.printf(
