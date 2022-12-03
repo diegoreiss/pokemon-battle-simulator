@@ -5,6 +5,8 @@ import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.pokemon.Tipo;
 
+import java.util.Scanner;
+
 public interface Batalha {
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
         System.out.printf(
@@ -46,5 +48,29 @@ public interface Batalha {
         }
 
         return danoAReceber;
+    }
+
+    static Movimento escolherMovimentoPokemonPlayer(Pokemon pokemonPlayerAtual) {
+        Scanner sc = new Scanner(System.in);
+
+        int movimentoIndex = 1, movimentoEscolhidoIndex = 0;
+        boolean loop = true;
+        Movimento movimentoEscolhido = null;
+
+        System.out.println("MOVIMENTOS");
+        for (Movimento movimento : pokemonPlayerAtual.getMovimentos()) {
+            System.out.printf("%d - %s : [%s]%n", movimentoIndex++, movimento.getNome(), movimento.getTipo().getNome());
+        }
+
+        do {
+            try {
+                System.out.println("Qual movimento escolher?: ");
+                movimentoEscolhidoIndex = sc.nextInt();
+                movimentoEscolhido = pokemonPlayerAtual.getMovimentos()[movimentoEscolhidoIndex-1];
+                loop = false;
+            } catch (ArrayIndexOutOfBoundsException ignored) {}
+        } while (loop);
+
+        return movimentoEscolhido
     }
 }
