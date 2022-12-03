@@ -73,4 +73,21 @@ public interface Batalha {
 
         return movimentoEscolhido
     }
+
+    static int opcoesBatalha() {
+        Scanner sc = new Scanner(System.in);
+
+        int opcao = 0;
+        System.out.printf("\n" +
+                "[1] - Lutar\n" +
+                "[2] - Fugir\n" +
+                "[3] - Mochila\n\n");
+
+        do {
+            System.out.print(">> ");
+            opcao = sc.nextInt();
+        } while (opcao < 1 || opcao > 3);
+
+        return opcao;
+    }
 }
