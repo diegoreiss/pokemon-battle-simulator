@@ -1,5 +1,7 @@
 package br.com.system.batalha;
 
+import br.com.exceptions.CapturaPokemonException;
+import br.com.exceptions.FugirDaBatalhaException;
 import br.com.exceptions.PokemonAbatidoException;
 import br.com.system.mochila.*;
 import br.com.system.pokemon.Movimento;
@@ -9,6 +11,7 @@ import java.util.Scanner;
 
 public interface Batalha {
     void iniciarBatalha();
+    void turnoPlayer() throws PokemonAbatidoException, FugirDaBatalhaException, CapturaPokemonException;
 
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
         System.out.printf(
