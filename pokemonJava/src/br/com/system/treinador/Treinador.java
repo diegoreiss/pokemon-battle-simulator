@@ -76,7 +76,7 @@ public abstract class Treinador {
         }
     }
 
-    public  void curarPokemon(Pocao pocao, Pokemon pokemonParaCurar) {
+    public void curarPokemon(Pocao pocao, Pokemon pokemonParaCurar) {
         pokemonParaCurar.setHpAtual(pokemonParaCurar.getHpAtual() + pocao.getHpRecupera());
 
         if (pokemonParaCurar.getHpAtual() >= pokemonParaCurar.getHP_TOTAL()) {
