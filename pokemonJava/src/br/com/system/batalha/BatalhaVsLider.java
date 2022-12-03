@@ -108,6 +108,7 @@ public class BatalhaVsLider implements Batalha {
                     turnoAdversario();
                 } catch (PokemonAbatidoException pokemonAbatidoException) {
                     System.out.println(pokemonAbatidoException.getMessage());
+                    break;
                 }
             }
         }
