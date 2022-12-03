@@ -2,8 +2,6 @@ package br.com.system.treinador;
 
 import br.com.system.mochila.Mochila;
 import br.com.system.pokemon.Genero;
-import br.com.system.pokemon.Pokemon;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +11,6 @@ public class TreinadorComum extends Treinador {
 
     public TreinadorComum(String nome, int idade, Genero genero, Mochila mochila) {
         super(nome, idade, genero, mochila);
-        this.insignias = new ArrayList<>();
-    }
-
-    public TreinadorComum(String nome, int idade, Genero genero, Mochila mochila, Pokemon[] pokemons) {
-        super(nome, idade, genero, mochila, pokemons);
         this.insignias = new ArrayList<>();
     }
 
@@ -34,12 +27,9 @@ public class TreinadorComum extends Treinador {
         System.out.println("==============================");
         System.out.println("      CARTAO DE TREINADOR     ");
         System.out.println("==============================");
-
         System.out.println("NOME: " + getNome());
-
         System.out.println("Pokemons: ");
         mostrarPokemons();
-
         System.out.println("Insígnias: ");
         try {
             mostrarInsignias();
@@ -72,7 +62,6 @@ public class TreinadorComum extends Treinador {
     }
 
     private boolean isExisteInsignia(Insignia insignia) {
-
         for (Insignia insigniaMochila : insignias) {
             if (insigniaMochila.equals(insignia)) {
                 return true;
