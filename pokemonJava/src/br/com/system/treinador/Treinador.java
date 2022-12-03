@@ -2,6 +2,7 @@ package br.com.system.treinador;
 
 import br.com.system.mochila.Mochila;
 import br.com.system.mochila.Pocao;
+import br.com.system.mochila.Pokebola;
 import br.com.system.pokemon.Genero;
 import br.com.system.pokemon.Pokemon;
 
@@ -89,6 +90,12 @@ public abstract class Treinador {
 
     public void capturarPokemon(Pokemon pokemonParaCapturar) {
         adicionarPokemon(pokemonParaCapturar);
+    }
+
+    public void capturarPokemon(Pokebola pokebola, Pokemon pokemonParaCapturar) {
+        adicionarPokemon(pokemonParaCapturar);
+        mochila.removerItem(pokebola, 1);
+        System.out.printf("%s capturado com sucesso!%n", pokemonParaCapturar.getNome());
     }
 
     private void adicionarPokemon(Pokemon pokemonParaAdicionar) {
