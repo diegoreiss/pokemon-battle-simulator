@@ -117,6 +117,14 @@ public class BatalhaVsTreinadorComum implements Batalha {
 
     @Override
     public Object verificarVencedor() {
-        return null;
+        Object vencedor = null;
+
+        if (this.pokemonsAdversario.length == 0) {
+            vencedor = 0;
+        } else if (this.pokemonsPlayer.length == 0) {
+            vencedor = 1;
+        }
+
+        return vencedor;
     }
 }
