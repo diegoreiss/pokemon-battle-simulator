@@ -179,4 +179,24 @@ public interface Batalha {
 
         return copyArray;
     }
+
+    static Pokemon[] removePrimeiroPokemon(Pokemon[] pokemons) {
+        if (pokemons == null || pokemons.length == 0) {
+            return pokemons;
+        }
+
+        int firstIndex = 0;
+
+        Pokemon[] novoArrayPokemon = new Pokemon[pokemons.length-1];
+
+        for (int i = 0, j = 0; i < pokemons.length; i++) {
+            if (i == firstIndex) {
+                continue;
+            }
+
+            novoArrayPokemon[j++] = pokemons[i];
+        }
+
+        return novoArrayPokemon;
+    }
 }
