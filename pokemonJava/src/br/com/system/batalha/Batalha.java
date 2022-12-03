@@ -1,5 +1,6 @@
 package br.com.system.batalha;
 
+import br.com.exceptions.PokemonAbatidoException;
 import br.com.system.pokemon.Pokemon;
 
 public interface Batalha {
@@ -15,5 +16,11 @@ public interface Batalha {
                 pokemonPlayer.getNome(), pokemonPlayer.getSIMBOLO_GENERO(), pokemonPlayer.getTipos(),
                     pokemonPlayer.getHpAtual(), pokemonPlayer.getHP_TOTAL()
         );
+    }
+
+    static void verificarHp(Pokemon pokemonQueRecebeuAtaque) throws PokemonAbatidoException {
+        if (pokemonQueRecebeuAtaque.getHpAtual() <= 0) {
+            throw new PokemonAbatidoException("Pokemon " + pokemonQueRecebeuAtaque.getNome() + " foi abatido!");
+        }
     }
 }
