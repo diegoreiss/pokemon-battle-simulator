@@ -131,5 +131,7 @@ public interface Batalha {
                 loop = false;
             } catch (IndexOutOfBoundsException ignored) {}
         } while (loop);
+
+        return pocaoEscolhida;
     }
 }
