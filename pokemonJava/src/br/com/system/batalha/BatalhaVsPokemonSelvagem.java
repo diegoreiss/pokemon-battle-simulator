@@ -97,7 +97,12 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void verificarHpPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
-
+        if (pokemonPlayer.getHpAtual() <= 0) {
+            this.pokemonsPlayer = Batalha.removePrimeiroPokemon(this.pokemonsPlayer);
+            try {
+                this.pokemonPlayerEscolhido = this.pokemonsPlayer[0];
+            } catch (ArrayIndexOutOfBoundsException ignored) {}
+        }
     }
 
     @Override
