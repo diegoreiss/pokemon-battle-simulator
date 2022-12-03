@@ -110,6 +110,14 @@ public class BatalhaVsLider implements Batalha {
 
     @Override
     public Object verificarVencedor() {
-        return null;
+        Object vencedor = null;
+
+        if (this.pokemonsAdversario.length == 0) {
+            vencedor = this.player;
+        } else if (this.pokemonsPlayer.length == 0) {
+            vencedor = this.adversario;
+        }
+
+        return vencedor;
     }
 }
