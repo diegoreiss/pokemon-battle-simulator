@@ -90,4 +90,21 @@ public interface Batalha {
 
         return opcao;
     }
+
+    static int opcoesMochila() {
+        Scanner sc = new Scanner(System.in);
+
+        int opcao = 0;
+
+        System.out.println("\n" +
+                "[1] - Curar Pokemon\n" +
+                "[2] - Capturar Pokemon\n\n");
+
+        do {
+            System.out.print(">> ");
+            opcao = sc.nextInt();
+        } while (opcao < 1 || opcao > 2);
+
+        return opcao;
+    }
 }
