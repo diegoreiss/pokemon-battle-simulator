@@ -38,4 +38,9 @@ public class Tipo {
     public void setFracoContra(List<Tipo> fracoContra) {
         this.fracoContra = fracoContra;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
