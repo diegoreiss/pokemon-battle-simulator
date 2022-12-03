@@ -4,9 +4,12 @@ import br.com.exceptions.CapturaPokemonException;
 import br.com.exceptions.FugirDaBatalhaException;
 import br.com.exceptions.PokemonAbatidoException;
 import br.com.system.mochila.Pocao;
+import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.treinador.LiderDeGinasio;
 import br.com.system.treinador.TreinadorComum;
+
+import java.util.Random;
 
 public class BatalhaVsLider implements Batalha {
 
@@ -86,7 +89,10 @@ public class BatalhaVsLider implements Batalha {
 
     @Override
     public void turnoAdversario() throws PokemonAbatidoException, FugirDaBatalhaException {
-
+        int randomIndexMovimento = new Random().nextInt(this.pokemonAdversarioEscolhido.getMovimentos().length);
+        Movimento movimentoRandom = this.pokemonAdversarioEscolhido.getMovimentos()[randomIndexMovimento];
+        System.out.printf("%s usou %s%n", this.pokemonAdversarioEscolhido.getNome(), movimentoRandom.getNome());
+        Batalha.atacarPokemon(movimentoRandom, this.pokemonPlayerEscolhido);
     }
 
     @Override
