@@ -90,10 +90,6 @@ public abstract class Treinador {
     public void capturarPokemon(Pokemon pokemon) {
     }
 
-    private boolean isDentroDaCapacidade(Pokemon[] pokemons) {
-        return pokemons.length <= CAPACIDADE_DE_POKEMONS;
-    }
-
     private Pokemon[] slicePokemons(Pokemon[] pokemons) {
         Pokemon[] pokemonsSliced = new Pokemon[CAPACIDADE_DE_POKEMONS];
 
