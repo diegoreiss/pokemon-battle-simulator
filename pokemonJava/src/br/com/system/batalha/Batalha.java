@@ -1,6 +1,9 @@
 package br.com.system.batalha;
 
 import br.com.exceptions.PokemonAbatidoException;
+import br.com.system.mochila.ItemPocao;
+import br.com.system.mochila.Mochila;
+import br.com.system.mochila.Pocao;
 import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.pokemon.Tipo;
@@ -106,5 +109,27 @@ public interface Batalha {
         } while (opcao < 1 || opcao > 2);
 
         return opcao;
+    }
+
+    static Pocao escolherPocao(Mochila mochila) {
+        Scanner sc = new Scanner(System.in);
+
+        int itemPocaoIndex = 1, itemPocaoEscolhidoIndex = 0;
+        boolean loop = true;
+        Pocao pocaoEscolhida = null;
+
+        System.out.println("POÇÕES");
+        for (ItemPocao itemPocao : mochila.getPocoes()) {
+            System.out.printf("[%d] - %s : x%d%n", itemPocaoIndex++, itemPocao.getPocao().getNome(), itemPocao.getQuantidade());
+        }
+
+        do {
+            try {
+                System.out.println("Qual poção escolher?: ");
+                itemPocaoEscolhidoIndex = sc.nextInt();
+                pocaoEscolhida = mochila.getPocoes().get(itemPocaoEscolhidoIndex-1).getPocao();
+                loop = false;
+            } catch (IndexOutOfBoundsException ignored) {}
+        } while (loop);
     }
 }
