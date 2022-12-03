@@ -2,7 +2,6 @@ package br.com.system.treinador;
 
 import br.com.system.mochila.Mochila;
 import br.com.system.pokemon.Genero;
-import br.com.system.pokemon.Pokemon;
 
 public class LiderDeGinasio extends Treinador {
 
