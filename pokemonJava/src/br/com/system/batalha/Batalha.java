@@ -12,6 +12,7 @@ import java.util.Scanner;
 public interface Batalha {
     void iniciarBatalha();
     void turnoPlayer() throws PokemonAbatidoException, FugirDaBatalhaException, CapturaPokemonException;
+    void turnoAdversario() throws PokemonAbatidoException, FugirDaBatalhaException;
 
     static void mostrarInformacoesPokemons(Pokemon pokemonPlayer, Pokemon pokemonAdversario) {
         System.out.printf(
