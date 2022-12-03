@@ -26,6 +26,12 @@ public interface Batalha {
         }
     }
 
+    static void atacarPokemon(Movimento movimentoEscolhido, Pokemon pokemonAReceberOMovimento) throws PokemonAbatidoException {
+        int danoAReceber = danoAReceber(movimentoEscolhido, pokemonAReceberOMovimento);
+        pokemonAReceberOMovimento.setHpAtual(pokemonAReceberOMovimento.getHpAtual() - danoAReceber);
+        verificarHp(pokemonAReceberOMovimento);
+    }
+
     static int danoAReceber(Movimento movimentoEscolhido, Pokemon pokemonAReceberOMovimento) {
         int danoAReceber = movimentoEscolhido.getDanoBase();
 
