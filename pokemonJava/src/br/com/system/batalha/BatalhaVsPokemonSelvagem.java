@@ -5,6 +5,7 @@ import br.com.exceptions.FugirDaBatalhaException;
 import br.com.exceptions.PokemonAbatidoException;
 import br.com.system.mochila.Pocao;
 import br.com.system.mochila.Pokebola;
+import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
 import br.com.system.treinador.TreinadorComum;
 
@@ -63,7 +64,20 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
 
     @Override
     public void turnoPlayer() throws PokemonAbatidoException, FugirDaBatalhaException, CapturaPokemonException {
+        int opcaoPlayer = Batalha.opcoesBatalha();
 
+        switch (opcaoPlayer) {
+            case 1:
+                Movimento movimentoEscolhido = Batalha.escolherMovimentoPokemonPlayer(this.pokemonPlayerEscolhido);
+                System.out.printf("%s usou %s%n", this.pokemonPlayerEscolhido.getNome(), movimentoEscolhido.getNome());
+                Batalha.atacarPokemon(movimentoEscolhido, this.pokemonSelvagem);
+                break;
+            case 2:
+                fugirDaBatalha();
+                break;
+            case 3:
+                irParaMochila();
+        }
     }
 
     @Override
