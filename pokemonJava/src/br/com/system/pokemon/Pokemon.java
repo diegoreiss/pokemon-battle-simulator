@@ -1,6 +1,5 @@
 package br.com.system.pokemon;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Pokemon {
