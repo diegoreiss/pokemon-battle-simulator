@@ -1,8 +1,6 @@
 package br.com.system.batalha;
 
-import br.com.exceptions.CapturaPokemonException;
-import br.com.exceptions.FugirDaBatalhaException;
-import br.com.exceptions.PokemonAbatidoException;
+import br.com.exceptions.*;
 import br.com.system.mochila.*;
 import br.com.system.pokemon.Movimento;
 import br.com.system.pokemon.Pokemon;
