@@ -93,7 +93,7 @@ public class BatalhaVsLider implements Batalha {
             }
 
             while (true) {
-                Batalha.mostrarInformacoesPokemons(this.pokemonPlayerEscolhido, this.pokemonAdversarioEscolhido);
+                MostrarInformacaoPokemon.mostrarInformacoesPokemons(this.pokemonPlayerEscolhido, this.pokemonAdversarioEscolhido);
 
                 try {
                     turnoPlayer();
