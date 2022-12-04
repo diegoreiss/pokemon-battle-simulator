@@ -83,7 +83,7 @@ public class BatalhaVsPokemonSelvagem implements Batalha {
             }
 
             while (true) { // while true até que um pokemon seja abatido
-                Batalha.mostrarInformacoesPokemons(this.pokemonPlayerEscolhido, this.pokemonSelvagem);
+                MostrarInformacaoPokemon.mostrarInformacoesPokemons(this.pokemonPlayerEscolhido, this.pokemonSelvagem);
 
                 try {
                     turnoPlayer();
