@@ -26,6 +26,13 @@
 
 # Diagrama de Classe
 
+<p> Clique
+    <a href="https://github.com/diegoreiss/pokemon-java/blob/main/img/classDiagram.png" download>
+        aqui
+    </a>
+    para baixar o diagrama
+</p>
+
 <div align="center">
     <img src="https://github.com/diegoreiss/pokemon-java/blob/main/img/classDiagram.png">
 </div>
