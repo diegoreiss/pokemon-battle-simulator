@@ -18,9 +18,15 @@
     </table>
 </div>
 
+# Preview
+
+<div align="center">
+    <img src="https://github.com/diegoreiss/pokemon-java/blob/main/img/preview.png">
+</div>
+
 # Diagrama de Classe
 
 <div align="center">
-    <img src="https://github.com/diegoreiss/pokemon-java/blob/main/diagramaDeClasse/pokemonUMLFinal.drawio.png">
+    <img src="https://github.com/diegoreiss/pokemon-java/blob/main/img/classDiagram.png">
 </div>
 
