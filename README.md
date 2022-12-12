@@ -22,6 +22,7 @@
 
 <div align="center">
     <img src="https://github.com/diegoreiss/pokemon-java/blob/main/img/preview.png">
+    <img src="https://github.com/diegoreiss/pokemon-java/blob/main/img/preview2.png">
 </div>
 
 # Diagrama de Classe
