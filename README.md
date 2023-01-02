@@ -1,4 +1,4 @@
-# Pokemon Java
+# Pokemon Battle Simulator
 
 <div align="center">
     <p>Projeto realizado para praticar o paradigma <strong>Orientado a Objetos</strong> junto com a modelagem de diagramas de classe</p>
